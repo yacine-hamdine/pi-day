@@ -1,0 +1,356 @@
+@font-face{
+    font-family: "Laila";
+    src: url("../fonts/Laila-Bold.ttf");
+}
+
+@font-face{
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-Regular.ttf");
+}
+
+
+html{
+    scroll-behavior: smooth !important;
+    user-select: none;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    font: 18px "Rubik", sans-serif;
+}
+
+#preloader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #faebd7;
+    z-index: 200;
+}
+
+#preloader > div{
+    width: auto;
+}
+
+#preloader > div > img{
+    padding: 10px 0;
+    animation: floating 1.5s ease-in-out infinite;
+}
+
+#preloader > div:nth-of-type(2) > p{
+    font: 25px "Laila", sans-serif;
+    -webkit-text-stroke: 1px #000000;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: .1em;
+    border-right: 3px solid #F96632;
+    animation: typing 1s steps(30, end) infinite, blink-caret .5s step-end infinite;
+}
+
+@keyframes typing{
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret{
+    from, to { border-color: transparent }
+    50% { border-color: #F96632  }
+}
+
+img#deco-top, img#deco-bottom{
+    width: 100px;
+    position: absolute;
+    z-index: 100;
+}
+
+img#deco-top{
+    top: 0;
+    left: 0;
+}
+
+img#deco-bottom{
+    bottom: 50px;
+    right: 0;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transition: all ease-in-out .2s;
+    z-index: 100;
+}
+
+header > nav{
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+header > nav > div > a{
+    padding: 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #000000;
+    transition: all .1s;
+}
+
+header > nav > div > a:hover{
+    color: #84D1AA;
+    background-color: #84d1ab2a;
+    /*border-bottom: 2px solid #84D1AA;*/
+}
+
+header > nav > div > a.active{
+    color: #F96632;
+    background-color: #F966322a;
+    /*border-bottom: 2px solid #F96632;*/
+}
+
+/*_____________________________________________ start first frame _______________________________________________*/
+
+section#home{
+    position: fixed;
+    z-index: 5;
+    padding: 0px 50px;
+    height: calc(100vh + 50px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    background: #faebd7 url("../media/main-bg.svg") repeat left top;
+}
+
+section#home > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+section#home > div > div#presentation{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    line-height: 25px;
+}
+
+section#home > div > div#presentation > div > h1{
+    font: 40px "Laila";
+    margin: 0;
+    color: #F96632;
+    -webkit-text-stroke: #000000 2px;
+}
+
+section#home > div > div#presentation > div > span#osc-btn{
+    border-radius: 50px;
+    padding: 1px 5px;
+    color: #03A8e8;
+    -webkit-text-stroke: #03A8E8 1px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section#home > div > div#presentation > div > span#osc-btn:hover{
+    background-color: #84D1AA2a;
+    color: #84D1AA;
+    -webkit-text-stroke: #84D1AA 1px;
+}
+
+section#home > div > div > div > a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #F96632;
+    font-weight: bold;
+}
+
+section#home > div > div > div > a:hover{
+    background-color: #84D1AA;
+}
+
+section#home > div > img#earth{
+    position: absolute;
+}
+
+section#home > div > img#human-using-calculator{
+    position: absolute;
+}
+
+section#home > div > img#pi-day-icon{
+    width: 50px;
+    position: relative;
+    top: -150px;
+    left: 10px;
+}
+
+section#home > div > img#pi20dig{
+    width: 350px;
+    position: relative;
+    top: -15px;
+    left: 40px;
+}
+
+@keyframes pop{
+    from {scale: 0.5 0.5;}
+    to {scale: 1 1;}
+}
+
+@keyframes slidingT{
+    from {transform: translateY(-100px); opacity: 0; visibility: hidden;}
+    to {transform: translateY(0px); opacity: 1; visibility: visible;}
+}
+
+@keyframes slidingB{
+    from {transform: translateY(100px); opacity: 0; visibility: hidden;}
+    to {transform: translateY(0px); opacity: 1; visibility: visible;}
+}
+
+@keyframes slidingR{
+    from {transform: translateX(100px); opacity: 0; visibility: hidden;}
+    to {transform: translateX(0px); opacity: 1; visibility: visible;}
+}
+
+@keyframes slidingL{
+    from {transform: translateX(-100px); opacity: 0; visibility: hidden;}
+    to {transform: translateX(0px); opacity: 1; visibility: visible;}
+}
+
+@keyframes slidingLBtn{
+    0% {transform: translateX(-100px); opacity: 0; visibility: hidden;}
+    60% {transform: translateX(-100px); opacity: 0; visibility: hidden;}
+    100% {transform: translateX(0px); opacity: 1; visibility: visible;}
+}
+
+@keyframes floating{
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+@keyframes animateBubble {
+    0% {
+        margin-top: 1000px;
+    }
+    100% {
+        margin-top: -100%;
+    }
+}
+
+@keyframes sideWays { 
+    0% { 
+        margin-left:0px;
+    }
+    100% { 
+        margin-left:50px;
+    }
+}
+
+/*_____________________________________________ end first frame _______________________________________________*/
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/*_____________________________________________ start second frame _______________________________________________*/
+
+section#explore{
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-color: #ffffff;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top: 2px solid #000000;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    top: 100vh;
+    left: 0;
+    z-index: 10;
+}
+
+section#explore > div{
+    max-width: 400px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    height: 480px;
+}
+
+section#explore > div > img{
+    width: 100%;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+section#explore > div > h1, section#explore > div > p{
+    margin: 10px 20px;
+}
+
+section#explore > div > h1{
+    font: 32px "Laila", sans-serif;
+}
+
+section#explore > div > button{
+    border: none;
+    background: #f7c659;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 25px 20px 0 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+section#explore > div > button:hover{
+    background: #84D1AA2a;
+    color: #84D1AA;
+}
+
+section#explore > div > button#invite-btn{
+    float: right;
+    background: #F96632;
+}
+
+section#explore > div > button#invite-btn:hover{
+    background: #84D1AA2a;
+    color: #84D1AA;
+}
+
+/*_____________________________________________ end second frame _______________________________________________*/
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/*_____________________________________________ start third frame _______________________________________________*/
+
+section#schedule{
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    top: 200vh;
+    left: 0;
+    z-index: 10;
+}
+
+/*_____________________________________________ end third frame _______________________________________________*/
+
+/*--------------------------------------------------------------------------------------------------------------*/
