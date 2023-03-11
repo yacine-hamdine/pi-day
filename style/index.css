@@ -99,7 +99,8 @@ section#home > div > div#presentation > div > span#osc-btn{
 }
 
 section#home > div > div#presentation > div > span#osc-btn:hover{
-    background-color: #84D1AA;
+    background-color: #84D1AA2a;
+    color: #84D1AA;
 }
 
 section#home > div > div > div > a{
