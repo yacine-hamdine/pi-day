@@ -21,29 +21,65 @@
     <link rel="stylesheet" type="text/css" href="./style/index.css">
 </head>
 <body>
+    <div id="preloader">
+        <div>
+            <img src="./media/pi-day-icon.svg" alt="pi-day icon" width="150">
+        </div>
+        <div>
+            <p> <span style="color: #f76c66">3.14</span> 
+                <span style="color: #f7c659">159</span> 
+                <span style="color: #84d1aa">265</span> 
+                <span style="color: #f7e7a8">358</span> 
+                <span style="color: #f7c659">979</span> 
+                <span style="color: #84d1aa">323</span> 
+                <span style="color: #f7e7a8">846</span>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            document.querySelector('#preloader').style.display = "none";
+            document.querySelector("header > div > img").style.animation = "pop 0.3s linear 1";
+            document.querySelector("header > nav").style.animation = "pop 0.3s linear 1";
+            document.querySelector("section#home > div > div#presentation > div:nth-of-type(1)").style.animation = "slidingT .7s ease-in-out 1";
+            document.querySelector("section#home > div > div#presentation > div:nth-of-type(2)").style.animation = "slidingB .7s ease-in-out 1";
+            document.querySelector("section#home > div > div#presentation > div:nth-of-type(3)").style.animation = "slidingLBtn .8s ease-in-out 1";
+            document.querySelector("section#home > div > img#earth").style.animation = "slidingR .7s ease-in-out 1, floating 2s ease-in-out .7s infinite";
+            document.querySelector("section#home > div > img#human-using-calculator").style.animation = "slidingL .7s ease-in-out 1, floating 2s ease-in-out .7s infinite";
+            document.querySelector("section#home > div > img#pi-day-icon").style.animation = "slidingB 1s ease-in-out 1, floating 2s ease-in-out 1s infinite";
+            document.querySelector("section#home > div > img#pi20dig").style.animation = "slidingB .9s ease-in-out 1, floating 2s ease-in-out .9s infinite";
+            document.querySelector("img#deco-top").style.animation = "slidingL .7s ease-in-out 1";
+            document.querySelector("img#deco-bottom").style.animation = "slidingR .7s ease-in-out 1";
+        };
+    </script>
+
     <header>
         <div>
             <img src="./media/pi-day-logo-h.svg" alt="pi-day logo horizontal" width="200">
         </div>
         <nav>
-            <div><a href="#home" class="active">Home</a></div>
-            <div><a href="#explore">Explore</a></div>
-            <div><a href="#schedule">Schedule</a></div>
-            <div><a href="https://linktr.ee/open.source.club" target="_blank">Contact</a></div>
+            <div onclick="document.documentElement.scrollTop = 0; document.body.scrollTop = 0;"><a href="#home"  id="home-btn" class="active">Home</a></div>
+            <div><a href="#explore" id="explore-btn">Explore</a></div>
+            <div><a href="#schedule" id="schedule-btn">Schedule</a></div>
+            <div><a href="https://linktr.ee/open.source.club" target="_blank" id="contact-btn">Contact</a></div>
         </nav>
     </header>
+    <script src="./style/headerStyling.js" async></script>
     <script src="./style/navbar.js" async></script>
 
     <section id="home">
+        <img src="./media/corner-top.svg" id="deco-top" alt="deco-top">
+        <img src="./media/corner-bottom.svg" id="deco-bottom" alt="deco-bottom">
         <div>
             <div id="presentation">
                 <div>
-                    <h1>PI-DAY is here!</h1>
+                    <h1>PI-DAY <span style="color: #84D1AA;">is here</span> <span style="color: #f7c659;">!</span></h1>
                 </div>
                 <div>
                     Welcome to the International Day of Math celebration hosted by
                     <br>
-                    <span id="osc-btn">Open Source Club</span> at the University of Algiers 1!
+                    <span id="osc-btn">Open Source Club</span> at the University of Algiers 1 !
                     <br><br>
                     We are thrilled to be celebrating Pi Day, a day that honors the mathematical constant π and its importance in our daily lives.
                     <br><br>
@@ -63,8 +99,41 @@
     </section>
     
     <section id="explore">
-
+        <div>
+            <img src="./media/opening.svg" alt="opening">
+            <h1>Opening</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex corrupti officiis facere fugit quisquam, necessitatibus.
+            </p>
+        </div>
+        <div>
+            <img src="./media/learning.svg" alt="learning">
+            <h1>Learning</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid architecto esse exercitationem? A accusantium repellat voluptatum harum.
+            </p>
+            <button onclick="window.open('https\://forms.gle/nw2YGQKNcVyjAJ979', '_blank');" id="invite-btn">Be who teach !</button>
+            <button id="learning">Explore</button>
+        </div>
+        <div>
+            <img src="./media/entertainment.svg" alt="entertainment">
+            <h1>Entertainment</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam reprehenderit perspiciatis facilis aliquam qui at, maxime nulla modi alias sint.
+            </p>
+            <button id="learning">Explore</button>
+        </div>
     </section>
+    <div  class="popup" id="learning-pop">
+        <div>
+            Details
+        </div>
+    </div>
+    <div  class="popup" id="entertainment-pop">
+        <div>
+            Details
+        </div>
+    </div>
 
     <section id="schedule">
 
