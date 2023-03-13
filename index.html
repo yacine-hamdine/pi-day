@@ -51,8 +51,15 @@
             document.querySelector("section#home > div > img#pi20dig").style.animation = "slidingB .9s ease-in-out 1, floating 2s ease-in-out .9s infinite";
             document.querySelector("img#deco-top").style.animation = "slidingL .7s ease-in-out 1";
             document.querySelector("img#deco-bottom").style.animation = "slidingR .7s ease-in-out 1";
+            if(window.location.hash !== '' && window.location.hash !== '#home'){
+                document.querySelector("header").style.background = "#ffffff";
+                document.querySelector("header").style.borderBottom = "2px solid #000000";
+            }
         };
     </script>
+
+    <script src="./system/timer.js" async></script>
+    <script src="./style/popup.js" async></script>
 
     <header>
         <div>
@@ -62,7 +69,7 @@
             <div onclick="document.documentElement.scrollTop = 0; document.body.scrollTop = 0;"><a href="#home"  id="home-btn" class="active">Home</a></div>
             <div><a href="#explore" id="explore-btn">Explore</a></div>
             <div><a href="#schedule" id="schedule-btn">Schedule</a></div>
-            <div><a href="https://linktr.ee/open.source.club" target="_blank" id="contact-btn">Contact</a></div>
+            <div><a href="docs.html" id="docs-btn">Docs</a></div>
         </nav>
     </header>
     <script src="./style/headerStyling.js" async></script>
@@ -74,12 +81,16 @@
         <div>
             <div id="presentation">
                 <div>
-                    <h1>PI-DAY <span style="color: #84D1AA;">is here</span> <span style="color: #f7c659;">!</span></h1>
+                    <h1>
+                        PI-DAY <span style="color: #84D1AA;" id="w1">Starts in</span>
+                        <br>
+                        <span id="countdown"  style="color: #f7c659;"></span>
+                    </h1>
                 </div>
                 <div>
                     Welcome to the International Day of Math celebration hosted by
                     <br>
-                    <span id="osc-btn">Open Source Club</span> at the University of Algiers 1 !
+                    <span class="pop-btn" id="osc-btn">Open Source Club</span> at the <span id="ua1-btn" onclick="window.open('https\://www.univ-alger.dz', '_blank');">University of Algiers 1</span> !
                     <br><br>
                     We are thrilled to be celebrating Pi Day, a day that honors the mathematical constant π and its importance in our daily lives.
                     <br><br>
@@ -99,88 +110,265 @@
     </section>
     
     <section id="explore">
+        <h1 class="titles">Explore Event !</h1>
         <div>
-            <img src="./media/opening.svg" alt="opening">
+            <img src="./media/opening.png" alt="opening">
             <h1>Opening</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex corrupti officiis facere fugit quisquam, necessitatibus.
+                Presentation of π day and event opening ceremony.
             </p>
         </div>
         <div>
-            <img src="./media/learning.svg" alt="learning">
+            <img src="./media/learning.png" alt="learning">
             <h1>Learning</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid architecto esse exercitationem? A accusantium repellat voluptatum harum.
+                Come learn new things in  onference given by amazings professors about the importance of maths and its necessity in other scientific fields and in our daily lives !
             </p>
-            <button onclick="window.open('https\://forms.gle/nw2YGQKNcVyjAJ979', '_blank');" id="invite-btn">Be who teach !</button>
-            <button id="learning">Explore</button>
         </div>
         <div>
-            <img src="./media/entertainment.svg" alt="entertainment">
+            <img src="./media/entertainment.png" alt="entertainment">
             <h1>Entertainment</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam reprehenderit perspiciatis facilis aliquam qui at, maxime nulla modi alias sint.
+                We will be providing and organizing a bunch of fun games and educative activities such as quizzes, showcases and debates.
             </p>
-            <button id="learning">Explore</button>
+            <button onclick="window.open('https\://forms.gle/nw2YGQKNcVyjAJ979', '_blank');" id="invite-btn">Showcase you knowledge !</button>
         </div>
     </section>
-    <div  class="popup" id="learning-pop">
-        <div>
-            Details
-        </div>
-    </div>
-    <div  class="popup" id="entertainment-pop">
-        <div>
-            Details
-        </div>
-    </div>
 
     <section id="schedule">
-
+        <h1 class="titles">Event Schedule</h1>
+        <div>
+            <div>09:30</div>
+            <div>10:00</div>
+            <div>10:40</div>
+            <div>11:20</div>
+            <div>11:50</div>
+        </div>
+        <div>
+            <div><img src="./media/start-stick.svg" alt="start-stick"></div>
+            <div><img src="./media/middle-stick.svg" alt="middle-stick"></div>
+            <div><img src="./media/middle-stick.svg" alt="middle-stick"></div>
+            <div><img src="./media/middle-stick.svg" alt="middle-stick"></div>
+            <div><img src="./media/end-stick.svg" alt="end-stick"></div>
+        </div>
+        <div>
+            <div>
+                <h2>Opening</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> π theme presentation
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Dyla (Open Source Club Member)
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> House of AI at University of Algiers 1, Faculty of Sciences
+                </p>
+            </div>
+            <div>
+                <h2>Importance of biostatistics in biomedical</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> Conference
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Pr.Abrouk
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> House of AI at University of Algiers 1, Faculty of Sciences
+                </p>
+            </div>
+            <div>
+                <h2>Mathematical analysis for images processing</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> Conference
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Pr.El Kourd
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> House of AI at University of Algiers 1, Faculty of Sciences
+                </p>
+                <hr>
+                <h2>Activities</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> Games, Quizzes, Showcases
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Open Sources Club Members
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> Literature Building Hall (next to bibliotheca) at University of Algiers 1, Faculty of Sciences
+                </p>
+            </div>
+            <div>
+                <h2>Béjaia and its region through the centuries: mathematical applications to applied mathematics (11th - 19th centuries)</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> Conference
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Pr.Aïssani Djamil
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> House of AI at University of Algiers 1, Faculty of Sciences
+                </p>
+                <hr>
+                <h2>Activities (Continue)</h2>
+                <p style="color: #84D1AA; font-weight: bolder; font-size: 20px; -webkit-text-stroke: .001em #000000; text-align: center;">
+                    Lunch Break 12:00 - 13:00
+                </p>
+            </div>
+            <div>
+                <h2>Debates</h2>
+                <p>
+                    <span style="color: #f76c66;">&#9679;</span> Talk
+                    <br>
+                    <span style="color: #f7c659;">&#9679;</span> Everyone
+                    <br>
+                    <span style="color: #84D1AA;">&#9679;</span> House of AI at University of Algiers 1, Faculty of Sciences
+                </p>
+                <hr>
+                <h2>Activities (Continue)</h2>
+                <p style="color: #f76c66; font-weight: bolder; font-size: 20px; -webkit-text-stroke: .001em #000000;">
+                    *Until 15:00*
+                </p>
+            </div>
+        </div>
     </section>
 
-    <aside id="open-source-club-informations" style="display: none;">
-        <table>
-            <tr>
-                <td>
-                    <img src="./media/osc_logo_h.png" alt="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h1>Open Source Club</h1>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Open Source Club is a scientific club specialized in the field of technology and computer science in particular, it operates at the Faculty of Sciences - University of Algiers 1, for the benefit of students of all departments of the faculty.
-                    <br>
-                    Our club aims to encourage creativity and innovation in students by making their life more dynamic and full of learning.
-                    <br>
-                    We help you learn how to work with different software, be a leader, manage your time, and interact with lots of wonderful and amazing people.
-                    <br>
-                    We also support the students during their academic journey by helping them exchange knowledge and experience.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h2>Follow us on social media !</h2>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </td>
-            </tr>
-        </table>
-    </aside>
+    <div class="popup" id="osc-pop">
+        <div>
+            <div>
+                <img src="./media/osc-ua1.svg" alt="Open Source Club Logo">
+            </div>
+            <div>
+                <h1>Open Source Club</h1>
+            </div>
+            <div>
+                Open Source Club is a scientific club specialized in the field of technology and computer science in particular, it operates at the Faculty of Sciences - University of Algiers 1, for the benefit of students of all departments of the faculty.
+                <br>
+                Our club aims to encourage creativity and innovation in students by making their life more dynamic and full of learning.
+                <br>
+                We help you learn how to work with different software, be a leader, manage your time, and interact with lots of wonderful and amazing people.
+                <br>
+                We also support the students during their academic journey by helping them exchange knowledge and experience.
+            </div>
+            <div>
+                <h2>Connect With Us !</h2>
+            </div>
+            <div>
+                <div>
+                    <a href="https://linktr.ee/open.source.club" target="_blank">
+                        <img src="./media/linktree-icon.svg" alt="linktree-icon">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://instagram.com/open.source.club" target="_blank">
+                        <img src="./media/discord-icon.svg" alt="discord-icon">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://instagram.com/open.source.club" target="_blank">
+                        <img src="./media/instagram-icon.svg" alt="instagram-icon">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://facebook.com/opensourceclubfb" target="_blank">
+                        <img src="./media/facebook-icon.svg" alt="facebook-icon">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://linkedin.com/company/opensource-club" target="_blank">
+                        <img src="./media/linkedin-icon.svg" alt="linkedin-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
+        <div>
+            <img src="./media/osc_logo_h.png" alt="open source club logo">
+            <br>
+            <h1>Contact Us !</h1>
+            <a href="mailto:contact.osc.dz@gmail.com" style="text-decoration: none; color: #000000;">contact.osc.dz@gmail.com</a>
+            <br><br>
+            <table>
+                <tr>
+                    <td>
+                        <a href="https://linktr.ee/open.source.club" target="_blank">
+                            <img src="./media/linktree-icon.svg" alt="linktree-icon">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://instagram.com/open.source.club" target="_blank">
+                            <img src="./media/discord-icon.svg" alt="discord-icon">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://instagram.com/open.source.club" target="_blank">
+                            <img src="./media/instagram-icon.svg" alt="instagram-icon">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://facebook.com/opensourceclubfb" target="_blank">
+                            <img src="./media/facebook-icon.svg" alt="facebook-icon">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://linkedin.com/company/opensource-club" target="_blank">
+                            <img src="./media/linkedin-icon.svg" alt="linkedin-icon">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h1>Subscribe to Open Source Club Newsletter !</h1>
+            Stay tuned with Open Source Club Newsletter and get notified for latest news and make sure you don't miss upcoming events.
+            <br><br>    
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+            <button type="submit" id="subscribe">Subscribe</button>
+        </div>
+        <div>
+            Copyright &copy; <span id="currentYear"></span>, Open Source Club.
+        </div>
+    </footer>   
+    <script src="./system/currentYear.js" defer></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCiTgvAU_kU-f0nTRRcd5dgN7TULTiJeJo",
+          authDomain: "pi-day-87113.firebaseapp.com",
+          projectId: "pi-day-87113",
+          storageBucket: "pi-day-87113.appspot.com",
+          messagingSenderId: "593809530853",
+          appId: "1:593809530853:web:e142bd0c4882ad29c1d90c",
+          measurementId: "G-VJ8NNEV071",
+          databaseURL: "https://pi-day-87113-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
 
-    </footer>
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"
+
+        const emailsDB = getDatabase();
+
+        document.querySelector("#subscribe").addEventListener("click", () => {
+            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.querySelector("#email").value)){
+                set(ref(emailsDB, "Subscriber " + Math.floor((Math.random() * 1000000) + 1)), {
+                    email: document.querySelector("#email").value
+                })
+                .then(() => {
+                    document.querySelector("#subscribe").textContent = "Subscribed !";
+                    document.querySelector("#subscribe").style.backgroundColor = "#84D1AA";
+                    document.querySelector("#subscribe").onmouseover = () => {
+                        document.querySelector("#subscribe").style.color = "#ffffff";
+                    }
+                })
+                .catch((err) => {
+                    alert(err);
+                })
+            }
+            else{
+                alert("Please enter a valid email format !");
+            }
+        })
+      </script>
 </body>
 </html>
