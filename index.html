@@ -41,7 +41,7 @@
         window.onload = function() {
             document.querySelector('#preloader').style.display = "none";
             document.querySelector("header > div > img").style.animation = "pop 0.3s linear 1";
-            document.querySelector("header > nav").style.animation = "pop 0.3s linear 1";
+            document.querySelector("header > nav").style.animation = "slidingL .7s ease-in-out 1";
             document.querySelector("section#home > div > div#presentation > div:nth-of-type(1)").style.animation = "slidingT .7s ease-in-out 1";
             document.querySelector("section#home > div > div#presentation > div:nth-of-type(2)").style.animation = "slidingB .7s ease-in-out 1";
             document.querySelector("section#home > div > div#presentation > div:nth-of-type(3)").style.animation = "slidingLBtn .8s ease-in-out 1";
@@ -58,9 +58,13 @@
         };
     </script>
 
-    <script src="./system/timer.js" async></script>
+    <!--<script src="./system/timer.js" async></script>-->
+    <script src="./system/slidingNav.js" async></script>
     <script src="./style/popup.js" async></script>
 
+    <div id="menu-btn">
+        <img src="./media/menu.svg" alt="menu icon">
+    </div>
     <header>
         <div>
             <img src="./media/pi-day-logo-h.svg" alt="pi-day logo horizontal" width="200">
@@ -112,21 +116,21 @@
     <section id="explore">
         <h1 class="titles">Explore Event !</h1>
         <div>
-            <img src="./media/opening.png" alt="opening">
+            <img src="./media/opening.webp" alt="opening">
             <h1>Opening</h1>
             <p>
                 Presentation of π day and event opening ceremony.
             </p>
         </div>
         <div>
-            <img src="./media/learning.png" alt="learning">
+            <img src="./media/learning.webp" alt="learning">
             <h1>Learning</h1>
             <p>
                 Come learn new things in  onference given by amazings professors about the importance of maths and its necessity in other scientific fields and in our daily lives !
             </p>
         </div>
         <div>
-            <img src="./media/entertainment.png" alt="entertainment">
+            <img src="./media/entertainment.webp" alt="entertainment">
             <h1>Entertainment</h1>
             <p>
                 We will be providing and organizing a bunch of fun games and educative activities such as quizzes, showcases and debates.
@@ -276,7 +280,7 @@
 
     <footer>
         <div>
-            <img src="./media/osc_logo_h.png" alt="open source club logo">
+            <img src="./media/osc_logo_h.webp" alt="open source club logo">
             <br>
             <h1>Contact Us !</h1>
             <a href="mailto:contact.osc.dz@gmail.com" style="text-decoration: none; color: #000000;">contact.osc.dz@gmail.com</a>
@@ -345,13 +349,14 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
-        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"
-
-        const emailsDB = getDatabase();
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"
 
         document.querySelector("#subscribe").addEventListener("click", () => {
             if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.querySelector("#email").value)){
-                set(ref(emailsDB, "Subscriber " + Math.floor((Math.random() * 1000000) + 1)), {
+                const emailsDB = getDatabase();
+                const emailSubs = ref(emailsDB, 'Subscribers');
+                const newSub = push(emailSubs);
+                set(newSub, {
                     email: document.querySelector("#email").value
                 })
                 .then(() => {
